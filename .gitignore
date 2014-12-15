@@ -1,0 +1,5 @@
+log
+*.bak
+.hyde_deps
+media/images/me2.jpg
+media/images/me3.jpg

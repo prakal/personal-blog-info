@@ -1,0 +1,220 @@
+<!doctype html>
+<!-- https://github.com/paulirish/html5-boilerplate/blob/master/index.html -->
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="">
+
+  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+       Remove this if you use the .htaccess -->
+  <meta http-equiv="X-UA-Compatible" content="">
+
+  <!-- encoding must be specified within the first 512 bytes
+        www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#charset -->
+
+  <!-- meta element for compatibility mode needs to be before
+        all elements except title & meta
+        msdn.microsoft.com/en-us/library/cc288325(VS.85).aspx -->
+  <!-- Chrome Frame is only invoked if meta element for
+        compatibility mode is within the first 1K bytes
+        code.google.com/p/chromium/issues/detail?id=23003 -->
+
+  <title>Grid computing with Apple's Xgrid (desktop version)</title>
+  <meta name="description" content="">
+  <meta name="author" content="Fernando Paolo">
+
+  <!--  Mobile viewport optimized: j.mp/bplateviewport -->
+  <!-- <meta name="viewport" content=""> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Place favicon.ico & apple-touch-icon.png
+        in the root of your domain and delete these references -->
+  <link rel="shortcut icon" href="/favicon.ico">
+  <!-- <link rel="apple-touch-icon" href="/apple-touch-icon.png"> -->
+  
+    <link rel="stylesheet" href="/media/css/style.css">
+  <link rel="stylesheet" href="/media/css/syntax.css">
+  
+    <!-- All JavaScript at the bottom, except for Modernizr which
+        enables HTML5 elements & feature detects -->
+   <script src="/media/js/libs/modernizr-1.7.min.js"></script>
+    </head>
+<body id="xgrid">
+        
+          <div id="nav"><a href="/../index.html">Home</a></div>
+
+          <section class="content">
+          <article>
+
+<h1 class="title">
+    <a href="/material/xgrid.html">
+        Grid computing with Apple's Xgrid (desktop version)
+    </a>
+</h1>
+
+<h6 class="description">
+    <a href="/material/xgrid.html">
+        
+    </a>
+</h6>
+
+<div class="toc">
+<ul>
+<li><a href="#the-xgrid-agent-worker">The Xgrid agent&nbsp;(worker)</a></li>
+<li><a href="#the-xgrid-controller-master">The Xgrid controller&nbsp;(master)</a></li>
+<li><a href="#the-xgrid-daemon-control-interface">The Xgrid Daemon Control&nbsp;Interface</a></li>
+<li><a href="#the-xgrid-admin-tool">The Xgrid Admin&nbsp;tool</a></li>
+<li><a href="#a-hack-for-snow-leopard">A hack for Snow&nbsp;Leopard&#8230;</a></li>
+<li><a href="#the-xgrid-command-line-client-user">The xgrid command-line client&nbsp;(user)</a></li>
+<li><a href="#agent-jobs">Agent&nbsp;jobs</a></li>
+<li><a href="#client-results">Client&nbsp;results</a></li>
+<li><a href="#submitting-multiple-jobs">Submitting multiple&nbsp;jobs</a></li>
+<li><a href="#running-batch-jobs">Running batch&nbsp;jobs</a></li>
+<li><a href="#more-info">More&nbsp;info</a></li>
+</ul>
+</div>
+<h2 id="the-xgrid-agent-worker">The Xgrid agent&nbsp;(worker)</h2>
+<p>Any machine can be an agent. Configure the agent using the Sharing Pane of System Preferences. See <a href="http://docs.info.apple.com/article.html?path=ServerAdmin/10.6/en/xg3c6e05ee.html">Managing Xgrid Agents</a>.</p>
+<h2 id="the-xgrid-controller-master">The Xgrid controller&nbsp;(master)</h2>
+<p>Configuration if straightforward on Mac <span class="caps">OS</span> X <strong>Server</strong>. However&#8230; on the <strong>desktop</strong> version use the <a href="http://edbaskerville.com/software/xgridlite/">XgridLite</a> open source software&nbsp;to:</p>
+<ul>
+<li>Turn on and off the built-in Xgrid controller with a single&nbsp;click</li>
+<li>Set passwords for client and agent&nbsp;authentication</li>
+<li>Reset the controller to default&nbsp;settings</li>
+</ul>
+<p>See <a href="http://docs.info.apple.com/article.html?path=ServerAdmin/10.6/en/xg3c6df80a.html">Managing an Xgrid Controller</a>.</p>
+<h2 id="the-xgrid-daemon-control-interface">The Xgrid Daemon Control&nbsp;Interface</h2>
+<p>Command&nbsp;line: </p>
+<div class="codehilite"><pre><span class="err">$</span> <span class="n">xgridctl</span>
+</pre></div>
+
+
+<p>Start the&nbsp;controller:</p>
+<div class="codehilite"><pre><span class="err">$</span> <span class="n">ssh</span> <span class="n">username</span><span class="err">@</span><span class="n">remote</span><span class="p">.</span><span class="n">controller</span><span class="p">.</span><span class="n">edu</span>
+<span class="err">$</span> <span class="n">sudo</span> <span class="n">xgridctl</span> <span class="n">c</span> <span class="n">start</span>
+</pre></div>
+
+
+<p>Turn off an&nbsp;agent:</p>
+<div class="codehilite"><pre><span class="err">$</span> <span class="n">ssh</span> <span class="n">username</span><span class="err">@</span><span class="n">remote</span><span class="p">.</span><span class="n">agent</span><span class="p">.</span><span class="n">edu</span>
+<span class="err">$</span> <span class="n">sudo</span> <span class="n">xgridctl</span> <span class="n">a</span> <span class="n">stop</span>
+</pre></div>
+
+
+<p>More&nbsp;options:</p>
+<div class="codehilite"><pre><span class="err">$</span> <span class="n">sudo</span> <span class="n">xgridctl</span>
+<span class="nl">usage:</span> <span class="n">xgridctl</span> <span class="p">[</span><span class="n">controller</span><span class="o">|</span><span class="n">agent</span><span class="p">]</span> <span class="n">status</span><span class="o">|</span><span class="n">start</span><span class="o">|</span><span class="n">stop</span><span class="o">|</span><span class="n">restart</span>
+</pre></div>
+
+
+<h2 id="the-xgrid-admin-tool">The Xgrid Admin&nbsp;tool</h2>
+<p>Provides a summary of the activity of the grid. This software is part of Mac <span class="caps">OS</span> X <strong>Server</strong>. Download it for free from <a href="http://support.apple.com/downloads/">Apple&#8217;s website</a>.</p>
+<h2 id="a-hack-for-snow-leopard">A hack for Snow&nbsp;Leopard&#8230;</h2>
+<p>To have read/write permission on the agents in <code>/Volumes</code> we need <a href="http://docs.info.apple.com/article.html?path=Mac/10.6/en/8740.html">kerberos</a>. But it is only available on Mac <span class="caps">OS</span> X <strong>Server</strong>. Instead&#8230; one can simply change the configuration&nbsp;files:</p>
+<div class="codehilite"><pre><span class="nv">$ </span>sudo cp /usr/share/sandbox/xgridagentd_task_nobody.sb /usr/share/sandbox/xgridagentd_task_nobody.sb.bak
+
+<span class="nv">$ </span>sudo cp /usr/share/sandbox/xgridagentd_task_somebody.sb /usr/share/sandbox/xgridagentd_task_nobody.sb
+</pre></div>
+
+
+<h2 id="the-xgrid-command-line-client-user">The xgrid command-line client&nbsp;(user)</h2>
+<p>Set the environmental variables (or add these to your <code>.bashrc</code>):</p>
+<div class="codehilite"><pre><span class="err">$</span> <span class="n">export</span> <span class="n">XGRID_CONTROLLER_HOSTNAME</span><span class="o">=</span><span class="n">hostname</span>
+<span class="err">$</span> <span class="n">export</span> <span class="n">XGRID_CONTROLLER_PASSWORD</span><span class="o">=</span><span class="n">password</span>
+</pre></div>
+
+
+<p>Client submit jobs to the&nbsp;controller:</p>
+<div class="codehilite"><pre><span class="err">$</span> <span class="n">xgrid</span> <span class="o">-</span><span class="n">job</span> <span class="n">submit</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">-</span><span class="n">O</span> <span class="n">test</span><span class="p">.</span><span class="n">py</span>
+
+<span class="p">{</span><span class="n">jobIdentifier</span> <span class="o">=</span> <span class="mi">231</span><span class="p">;</span> <span class="p">}</span>
+</pre></div>
+
+
+<p>Client queries the&nbsp;results:</p>
+<div class="codehilite"><pre><span class="err">$</span> <span class="n">xgrid</span> <span class="o">-</span><span class="n">job</span> <span class="n">results</span> <span class="o">-</span><span class="n">id</span> <span class="mi">231</span>
+</pre></div>
+
+
+<h2 id="agent-jobs">Agent&nbsp;jobs</h2>
+<p>What is copied to the&nbsp;agents?</p>
+<p>The <strong>Command</strong> (if relative path): <code>/tmp/xgagent.GSI0Z6o4/bin/sh</code><br />
+The <strong>Working dir</strong> (if relative path): <code>/tmp/xgagent.bUDiNL4g</code>  </p>
+<h2 id="client-results">Client&nbsp;results</h2>
+<p>What is copied back to the&nbsp;client?</p>
+<ul>
+<li>The <strong>stdout</strong>&nbsp;stream</li>
+<li>The <strong>stderr</strong>&nbsp;stream</li>
+<li>The <strong>working&nbsp;dir</strong></li>
+</ul>
+<h2 id="submitting-multiple-jobs">Submitting multiple&nbsp;jobs</h2>
+<p>For single task jobs, simply let the controller managing the&nbsp;jobs:</p>
+<div class="codehilite"><pre><span class="nv">$ </span>xgrid -job submit /usr/bin/python test1.py
+<span class="nv">$ </span>xgrid -job submit /usr/bin/python test2.py
+<span class="nv">$ </span>xgrid -job submit /usr/bin/python test3.py
+...
+</pre></div>
+
+
+<h2 id="running-batch-jobs">Running batch&nbsp;jobs</h2>
+<p>For multiple task jobs, you can use the following scripts to <strong>create</strong> and <strong>send</strong> batch files to the controller, and to retrive the&nbsp;results:</p>
+<ul>
+<li><a href="https://github.com/fspaolo/code/tree/master/xgrid">xg-batch.py</a></li>
+<li><a href="https://github.com/fspaolo/code/tree/master/xgrid">xg-result.py</a></li>
+</ul>
+<p>Note that the xgrid command line tool does not support &#8220;globbing&#8221; multiple files as argument (e.g. <code>*.ext</code>). For that purpose I&#8217;ve created the above&nbsp;scripts.</p>
+<p>To generate and submit a batch file with jobs that call a program <code>prog</code> with command line argument <code>arg</code> on several&nbsp;files:</p>
+<div class="codehilite"><pre><span class="err">$</span> <span class="n">python</span> <span class="n">xg</span><span class="o">-</span><span class="n">batch</span><span class="p">.</span><span class="n">py</span> <span class="o">-</span><span class="n">s</span> <span class="o">-</span><span class="n">j</span> <span class="n">jobname</span> <span class="o">-</span><span class="n">c</span> <span class="s">&quot;/path/to/prog -a arg&quot;</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">files</span><span class="o">/*</span><span class="p">.</span><span class="n">ext</span>
+</pre></div>
+
+
+<p>To retrieve the results by passing the <span class="caps">ID</span> files (generated by <code>xg-batch.py</code>):</p>
+<div class="codehilite"><pre><span class="err">$</span> <span class="n">python</span> <span class="n">xg</span><span class="o">-</span><span class="n">result</span><span class="p">.</span><span class="n">py</span> <span class="n">file1</span><span class="p">.</span><span class="n">id</span> <span class="n">file2</span><span class="p">.</span><span class="n">id</span> <span class="n">file3</span><span class="p">.</span><span class="n">id</span> <span class="p">...</span>
+</pre></div>
+
+
+<p>Or by passing the directory containing those&nbsp;files:</p>
+<div class="codehilite"><pre><span class="err">$</span> <span class="n">python</span> <span class="n">xg</span><span class="o">-</span><span class="n">result</span><span class="p">.</span><span class="n">py</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">directory</span>
+</pre></div>
+
+
+<h2 id="more-info">More&nbsp;info</h2>
+<p>Xgrid: <a href="http://www.apple.com/science/hardware/gridcomputing.html">http://www.apple.com/science/hardware/gridcomputing.html</a><br />
+Tutorials: <a href="http://macresearch.org/the_xgrid_tutorials">http://macresearch.org/the_xgrid_tutorials</a><br />
+Wiki/Docs/<span class="caps">FAQ</span>/etc: <a href="http://tengrid.com">http://tengrid.com</a>  </p>
+</article>          </section>
+
+          <footer>
+          Proudly powered by <a href="http://www.python.org/">Python</a>,
+          build with <a href="http://hyde.github.com/">Hyde</a>, 
+          hosted on <a href="https://github.com/fspaolo/">GitHub</a>, 
+          written using <a href="http://www.vim.org/">VIM</a>
+          </footer>
+
+          <navigation>
+          <a href="/../index.html">Home</a> |
+          <a href="/../about/index.html">About</a> |
+          <a href="/../research/index.html">Research</a> |
+          <a href="/../reading/index.html">Reading</a> |
+          <a href="/../material/index.html">Material</a> |
+          <a href="mailto:fspaolo@gmail.com">Contact</a> 
+          </navigation>
+
+        
+    <!-- Javascript at the bottom for fast page loading -->
+    <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.5.1.min.js">\x3C/script>')</script>
+  
+    
+  <!--[if lt IE 7 ]>
+    <script src="js/libs/dd_belatedpng.js"></script>
+    <script>DD_belatedPNG.fix('img, .png_bg'); // Fix any <img> or .png_bg bg-images. Also, please read goo.gl/mZiyb </script>
+  <![endif]-->
+
+      
+  </body>
+</html>

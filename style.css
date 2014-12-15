@@ -1,0 +1,291 @@
+/*
+ *  Theme for: fspaolo.net
+ *  Fernando Paolo <fspaolo@gmail.com>
+ *  April 17, 2013
+ */
+
+/* reset (important for responsive layout) */
+
+html, body, div, p, img, ul, ol,
+footer, header, section, h1, span, 
+time, hr, hgroup, a img, aside, nav, 
+form, input, article, h2, h3, h4, 
+label, textarea, small {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+    text-decoration:none;
+}
+footer, section, article, 
+header, aside, nav { 
+    display:block;
+}
+:focus {
+    outline:none; 
+}
+::-moz-selection, ::selection { 
+    color:#fff;
+    background:#c22a09; 
+}
+
+h1, h2, h3, h4 {
+    font-weight: normal;
+}
+
+/* end reset */   
+
+html {
+    height:101%;
+}
+   
+body {
+    font: 16px/25px 'Georgia', serif;
+    color: #000305;
+    -webkit-text-size-adjust:100%;
+}
+
+/*  links */
+
+a {
+    color: #111;
+}
+
+a:hover, a:active {
+    color: #cc0000;
+    outline: 0; 
+}
+
+/* code */
+
+code, pre { 
+    font-family: 'Consolas', 'Deja Vu Sans Mono', 
+    'Bitstream Vera Sans Mono', 'Monaco', 'Courier New', 'monospace';  
+    font-size: 0.95em; 
+    color: #000099; 
+    margin: 1.14286em 0 1.14286em 40px;
+    word-wrap: break-word;
+    }
+
+p code {
+    font-size: 0.85em; 
+    margin: 0;
+}
+
+/* lists */
+
+ol, ul {
+    margin: 1.14286em 0 1.14286em 40px; /* orig: 53px */
+    line-height:1.6em;
+    padding-left: 22px;
+    list-style-position: outside;
+}
+
+ul { 
+    font-size: 1.1em; 
+}
+
+/* images */
+
+img {
+    width:90%;
+    border:solid 1px #eee;
+    height:auto;
+}
+img[alt=my_photo] { 
+    width: 70%; 
+}
+
+@media \0screen {
+    img { width: auto; } /* for ie 8 */
+}
+
+/* layout */
+
+article  {
+    width: 90%;
+    max-width: 600px;
+    overflow: auto;
+    padding: 0 0 10px 0;
+    margin: 0 auto;
+}
+
+h1, h2, h3, h4, h5, h6 { 
+    font-family: 'Georgia', serif;
+    font-weight: normal; 
+    color: #222; 
+}
+h1, h2 { 
+    margin: 37px 0 25px 0; 
+}
+h1 { 
+    font-size: 48px; 
+    line-height: 52px; 
+}
+h1 a { 
+    text-decoration: none; 
+}
+h2, h3 { 
+    font-size: 27px; 
+    line-height: 30px; 
+    margin-top: 30px;
+}
+
+h3 {
+    font-style: italic;
+}
+
+p {
+    clear: both;
+    font-size: 1.1em;
+    line-height: 1.6em;
+    word-spacing: 1px;
+    margin: 0 0 20px 0;
+    word-wrap: break-word;
+} 
+
+hr {
+    border:none;
+    height:1px;
+    background:#eee;
+    margin:60px 0 100px 0;
+}
+
+/* footer */
+
+footer { 
+    display: block;
+    width: 100%;
+    line-height: 1.8em;
+    text-align: center;
+    padding: 20px 0;
+}
+   
+/* navigation */
+
+#nav {
+    position: absolute;
+    right: 0;
+    font-family: Helvetica Neue, Arial, sans-serif;
+    font-size: 0.75em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background-color: #111;
+    padding: 1px 10px;
+    padding-top: 2px;
+    margin: 8px;
+}
+#nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+navigation {
+    display: block;
+    text-align: center;
+    font-size: 1.2em;
+    text-transform: lowercase;
+    font-variant: small-caps;
+    padding-bottom: 50px;
+}
+
+
+/* ipad (and other tablets) */
+
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    article  {
+        max-width: 600px;
+    }
+}
+
+/* iphone (and other smartphones): portrait and landscape */
+
+@media only screen and (max-width: 767px) {
+    body {
+       font-size: 14px;
+    }
+    h1 {
+        font-size: 2.4em;
+        line-height: 1.15em;
+        text-align: center;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    h2 {
+        width: 100%;
+        font-size: 1.8em;
+        line-height: 1.2em;
+    }
+    article  {
+        padding:0 0 40px 0;
+    }
+    p {
+        font-size: 1.3em;
+        line-height: 1.5em;
+        margin: 0 0 20px 0;
+        word-wrap: break-word;
+    }
+    p code {
+        font-size: 1em; 
+        margin: 0;
+    }
+    code, pre {
+        font-size: 1.3em;
+        margin: 1em 0 1em 0;
+        word-wrap: break-word;
+    }
+    hr {
+       margin:60px 0;
+    }  
+    img { 
+        width: 100%; 
+    }
+    img[alt=my_photo] { 
+        width: 70%; 
+    }
+    ul {
+        font-size: 1.3em;
+    }
+    ol, ul {
+        list-style: square;
+        margin-right: 0;
+    }
+    ul li, ol li {
+        width: 100%;
+        margin: 0;
+    }
+    #nav {
+        font-size: 0.8em;
+        letter-spacing: 0;
+        padding: 1px 10px;
+    }
+}
+
+/* iphone (and other smartphones): portrait only */
+
+@media (max-width: 320px) {
+    ol, ul {
+        list-style: square;
+        margin-left: 18px;
+        margin-right: 0;
+    }
+    img[alt=my_photo] { 
+        width: 100%; 
+    }
+    blockquote {
+        margin: 1.5em 18px 1.5em 24px;
+        padding-left: 9px; 
+    }
+}
+
+@media (-webkit-min-device-pixel-ratio : 1.5) {
+h1 span {
+    margin: 0 0 0 -1px;
+  }
+}

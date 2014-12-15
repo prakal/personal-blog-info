@@ -1,0 +1,264 @@
+/*
+ *  Theme for: fspaolo.net
+ *  Fernando Paolo <fspaolo@gmail.com>
+ *  April 17, 2013
+ */
+
+/* reset  */
+
+html, body, div, p, img, ul, ol,
+footer, header, section, h1, span, 
+time, hr, hgroup, a img, aside, nav, 
+form, input, article, h2, h3, h4, 
+label, textarea, small {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+    text-decoration:none;
+    }
+footer, section, article, 
+header, aside, nav { 
+    display:block;
+    }
+:focus {
+    outline:none; 
+    }
+::-moz-selection, ::selection { 
+    color:#fff;
+    background:#c22a09; 
+    }
+
+h1, h2, h3, h4 {
+    font-weight: normal;
+    }
+
+/* end reset */   
+
+
+html {
+    height:101%;
+    border-top:solid 4px #333;
+   }
+   
+body {
+   font-size:17px;
+   color:#111;
+   font-family: Georgia, serif;
+   font-weight:lighter;
+   -webkit-text-size-adjust:100%;
+   }
+
+/*  links */
+
+a {
+    color: #111;
+    }
+
+a:hover, a:active {
+    color: #cc0000;
+    outline: 0; 
+    }
+
+/* code */
+
+pre,
+code,
+kbd,
+samp {
+  font-family: monospace, serif;
+  _font-family: "courier new", monospace;
+  font-size: 1em; }
+
+small {
+  font-size: 75%; }
+
+/* lists */
+
+ol, ul {
+  margin: 1.14286em 0 1.14286em 53px;
+  line-height:1.6em;
+  padding-left: 22px;
+  list-style-position: outside;
+}
+
+ul {
+    font-size: 1.1em;
+    }
+
+/* images */
+
+img {
+  width:99.7%;
+  max-width:800px;
+  border:solid 1px #eee;
+  height:auto;
+  }
+
+@media \0screen {
+  img { 
+  	width: auto; /* for ie 8 */
+        }
+    }
+
+/* layout */
+
+article  {
+  width:90%;
+  max-width:560px;
+  overflow:auto;
+  padding:0 0 60px 0;
+  margin:0 auto;
+  }
+
+h1, h2, h3, h4 {
+    Font-style: italic;
+    }
+
+h1 {
+   width:100%;
+   font-size:2.1em;
+   text-align:center;
+   padding:40px 0;
+  }
+    h1 a {
+        text-decoration: none;
+   }
+h2 {
+  font-size:1.5em;
+  margin:50px 0 30px 0;
+  }
+p {
+  clear:both;
+  font-size:1.1em;
+  line-height:1.6em;
+  word-spacing:1px;
+  margin:0 0 30px 0;
+  } 
+/*
+p.large {
+  font-size:1.2em;
+}
+*/
+
+hr {
+  border:none;
+  height:1px;
+  background:#eee;
+  margin:60px 0 100px 0;
+}
+
+/* footer */
+
+footer { 
+  width:100%;
+  line-height: 1.8em;
+  border-top:solid 1px #eee;
+  text-align:center;
+  padding:100px 0;
+  display:block;
+   }
+   
+/* navigation */
+
+#nav {
+    position: absolute;
+    right: 0;
+    font-family: Helvetica Neue, Arial, sans-serif;
+    font-size: 0.75em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background-color: #111;
+    padding: 8px 14px;
+    margin: 8px;
+    }
+#nav a {
+    color: #fff;
+    text-decoration: none;
+    }
+
+/* toc */
+
+.toc {
+    padding: 0;
+    margin: 0;
+    }
+
+
+/* ipad (and other tablets) */
+
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    article  {
+      max-width:600px;
+      }
+    }
+
+/* iphone (and other smartphones) */
+
+@media only screen and (max-width: 767px) {
+
+      body {
+       font-size:15px;
+     }
+    h1 {
+      font-size:2.6em;
+      padding-top:60px;
+      padding-bottom:30px;
+      }
+    h2 {
+      width:100%;
+      font-size:1.8em;
+      text-align: center;
+      }
+    h1, h2 {
+      line-height: 1.3em;
+    }
+    article  {
+      padding:0 0 40px 0;
+      }
+    p {
+      font-size:1.3em;
+      line-height:1.5em;
+      margin:0 0 20px 0;
+    }
+    hr {
+       margin:60px 0;
+       }  
+    img.border {
+      width:99%;
+      }
+    ul {
+      font-size: 1.3em;
+    }
+    ol, ul {
+      margin-left: 24px;
+      }
+    ul li, ol li {
+      width: 100%;
+    }
+    
+    blockquote {
+      margin: 1.5em 24px 1.5em 24px;
+      padding-left: 9px; }
+  }
+
+@media (max-width: 320px) {
+h1 {
+  font-size:2em;
+  }
+li {
+    margin:0 0 40px 0;
+    }
+}
+
+@media (-webkit-min-device-pixel-ratio : 1.5) {
+h1 span {
+    margin:0 0 0 -1px;
+  }
+}
